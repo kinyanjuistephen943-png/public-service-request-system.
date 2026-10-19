@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Official eCitizen-style Public Service Request System. Submit complaints, track municipal resolution, and access civic services.">
+  <title>Public Service Request System | Citizen Portal</title>
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/home.css">
+</head>
+
+<body>
+
+  <!-- Main Site Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo" aria-label="Home">
+        <div class="brand-icon-box" aria-hidden="true">
+          <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+          </svg>
+        </div>
+        <div class="brand-text">
+
+          <span>Public Service Request Portal</span>
+        </div>
+      </a>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle navigation menu">
+        &#9776;
+      </button>
+
+      <!-- Main Navigation -->
+      <nav class="main-nav" id="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="submit-request.html" class="nav-link">Submit Request</a></li>
+          <li><a href="track.html" class="nav-link">Track Status</a></li>
+          <li><a href="admin.html" class="nav-link">Admin Dashboard</a></li>
+        </ul>
+
+        <!-- User Authentication & Profile Pill -->
+        <div class="nav-auth" id="header-auth-section">
+          <!-- Dynamically populated by js/common.js -->
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-badge-pill">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd"
+              d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+              clip-rule="evenodd" />
+          </svg>
+          Direct Municipal Resolution Pipeline
+        </div>
+        <h1 class="hero-title">Report Civic Issues. <br><span class="highlight">Track Resolution.</span></h1>
+        <p class="hero-subtitle">
+          Submit service requests for streetlights, water supply, garbage disposal, and road repairs directly to your
+          municipal authority. Monitor live updates every step of the way.
+        </p>
+        <div class="hero-actions">
+        </div>
+      </div>
+    
+  </section>
+  <!-- Main Body Content -->
+  <main class="main-content">
+    <div class="container">
+
+      <!-- Category Services Grid -->
+      <header class="section-header">
+        <span class="section-tag">Public Service Catalog</span>
+        <h2 class="section-title">Common Municipal Categories</h2>
+        <p class="section-desc">Select an incident category below to promptly launch a verified public service request.
+        </p>
+      </header>
+
+      <div class="categories-grid">
+        <!-- Broken Streetlight -->
+        <article class="category-card">
+          <div class="category-icon-box">
+            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+            </svg>
+          </div>
+          <h3>Broken Streetlight</h3>
+          <p>Report malfunctioning lampposts, dark intersections, flickering bulbs, or damaged lighting poles.</p>
+          <a href="submit-request.html?category=Broken%20Streetlight" class="btn btn-outline-primary btn-sm">Report
+            Streetlight &rarr;</a>
+        </article>
+
+        <!-- Water Issue -->
+        <article class="category-card">
+          <div class="category-icon-box" style="background: #e0f2fe; color: #0284c7;">
+            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z" />
+            </svg>
+          </div>
+          <h3>Water & Sanitation</h3>
+          <p>Report burst main pipes, low water pressure, contaminated water, or overflowing sewer drains.</p>
+          <a href="submit-request.html?category=Water%20Issue" class="btn btn-outline-primary btn-sm">Report Water Issue
+            &rarr;</a>
+        </article>
+
+        <!-- Garbage Collection -->
+        <article class="category-card">
+          <div class="category-icon-box" style="background: #fef3c7; color: #b45309;">
+            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+            </svg>
+          </div>
+          <h3>Garbage Collection</h3>
+          <p>Uncollected neighborhood trash bins, illegal dumpsites, public littering, and recycling issues.</p>
+          <a href="submit-request.html?category=Garbage%20Collection" class="btn btn-outline-primary btn-sm">Report
+            Garbage Issue &rarr;</a>
+        </article>
+
+        <!-- Potholes & Roads -->
+        <article class="category-card">
+          <div class="category-icon-box" style="background: #f1f5f9; color: #334155;">
+            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7" />
+            </svg>
+          </div>
+          <h3>Roads & Potholes</h3>
+          <p>Dangerous road craters, eroded asphalt, broken sidewalks, or missing manhole covers.</p>
+          <a href="submit-request.html?category=Roads%20%26%20Potholes" class="btn btn-outline-primary btn-sm">Report
+            Road Hazard &rarr;</a>
+        </article>
+
+        <!-- Public Safety -->
+        <article class="category-card">
+          <div class="category-icon-box" style="background: #fee2e2; color: #dc2626;">
+            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+          </div>
+          <h3>Public Safety</h3>
+          <p>Broken traffic lights, hazardous exposed wiring, stray aggressive animals, or structural hazards.</p>
+          <a href="submit-request.html?category=Public%20Safety" class="btn btn-outline-primary btn-sm">Report Safety
+            Hazard &rarr;</a>
+        </article>
+
+        <!-- Parks & Environment -->
+        <article class="category-card">
+          <div class="category-icon-box" style="background: #dcfce7; color: #15803d;">
+            <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+            </svg>
+          </div>
+          <h3>Parks & Environment</h3>
+          <p>Fallen or overgrown tree branches blocking driveways, vandalized playground facilities, or park upkeep.</p>
+          <a href="submit-request.html?category=Parks%20%26%20Environment" class="btn btn-outline-primary btn-sm">Report
+            Environment Issue &rarr;</a>
+        </article>
+      </div>
+
+      <!-- How it Works Workflow -->
+      <section class="workflow-section">
+        <header class="section-header" style="margin-bottom: 1.5rem;">
+          <span class="section-tag">Citizen Workflow</span>
+          <h2 class="section-title">How It Works</h2>
+          <p class="section-desc">Transparent 3-stage governance process keeping citizens informed from submission to
+            resolution.</p>
+        </header>
+
+        <div class="steps-grid">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h4>Submit Request</h4>
+            <p>Citizen logs or registers the incident with category, precise address/location, description, and optional
+              photo.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h4>Officer Review & Dispatch</h4>
+            <p>Department administrators inspect the case, triage priority, assign field personnel, and mark status to
+              In Progress.</p>
+          </div>
+
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h4>Resolution & Rating</h4>
+            <p>Once field repairs are completed, status transitions to Resolved. Citizen inspects outcome and provides
+              feedback.</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Public Service Request System. All rights reserved.</p>
+      <p>Clean Local Architecture &bull; Privacy & Transparency Guaranteed</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/storage.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/home.js"></script>
+</body>
+
+</html>

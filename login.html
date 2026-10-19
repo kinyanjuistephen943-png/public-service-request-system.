@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Sign in to the Public Service Request Portal as a Citizen or Municipal Administrator.">
+  <title>Sign In | Public Service Request System</title>
+  
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon-box" aria-hidden="true">
+          <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span>Public Service Request Portal</span>
+        </div>
+      </a>
+
+      <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle menu">&#9776;</button>
+
+      <nav class="main-nav" id="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="submit-request.html" class="nav-link">Submit Request</a></li>
+          <li><a href="track.html" class="nav-link">Track Status</a></li>
+          <li><a href="admin.html" class="nav-link">Admin Dashboard</a></li>
+        </ul>
+        <div class="nav-auth" id="header-auth-section"></div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Sign In Container -->
+  <main class="main-content">
+    <div class="container">
+      <div class="auth-wrapper">
+        <div class="auth-card">
+          <div class="auth-header">
+            <div class="auth-icon-badge" aria-hidden="true">
+              <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+              </svg>
+            </div>
+            <h2 class="auth-title">Citizen Sign In.</h2>
+            <p class="auth-subtitle">Access your submitted requests or municipal management tools.</p>
+          </div>
+
+          <form id="login-form" novalidate>
+            <!-- Email or ID -->
+            <div class="form-group">
+              <label class="form-label" for="login-id">Email Address  <span class="required">*</span></label>
+              <input type="text" id="login-id" class="form-control" placeholder="citizen@email.com " required autocomplete="username">
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+              <label class="form-label" for="login-password">Password <span class="required">*</span></label>
+              <input type="password" id="login-password" class="form-control" placeholder="Enter your password" required autocomplete="current-password">
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top: 1rem;">
+              Sign In to Portal
+            </button>
+          </form>
+
+          <!-- First Time Info Notice (Respecting "Do not include test data") -->
+         
+
+          <div class="auth-footer-prompt">
+            Don't have an account yet? <a href="register.html">Register Account &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="footer-brand-title">
+          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/>
+          </svg>
+        </div>
+        <p class="footer-brand-desc">Official citizen incident reporting and municipal service tracking portal.</p>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Public Service Request System. All rights reserved.</p>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/storage.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

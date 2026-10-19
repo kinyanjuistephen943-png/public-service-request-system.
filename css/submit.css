@@ -1,0 +1,191 @@
+/* ==========================================================================
+   submit.css - Submit Public Service Request Styles
+   ========================================================================== */
+
+.submit-layout {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.submit-intro {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.submit-intro h2 {
+  font-size: 2rem;
+  color: var(--secondary);
+  margin-bottom: 0.5rem;
+}
+
+.submit-intro p {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+.form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+}
+
+/* Image Upload Area */
+.file-upload-box {
+  border: 2px dashed var(--border-color);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  background-color: var(--bg-surface-alt);
+  cursor: pointer;
+  transition: var(--transition);
+  position: relative;
+}
+
+.file-upload-box:hover, .file-upload-box.dragover {
+  border-color: var(--primary);
+  background-color: var(--primary-light);
+}
+
+.file-upload-icon {
+  width: 48px;
+  height: 48px;
+  background: #ffffff;
+  color: var(--primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 0.75rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.file-upload-box p {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--secondary);
+  margin-bottom: 0.25rem;
+}
+
+.file-upload-box small {
+  color: var(--text-muted);
+  font-size: 0.775rem;
+}
+
+.file-upload-input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Image Preview */
+.image-preview-container {
+  display: none;
+  margin-top: 1rem;
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  background: #000;
+  max-height: 240px;
+}
+
+.image-preview-container img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+}
+
+.btn-remove-image {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  background: rgba(15, 23, 42, 0.75);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--radius-full);
+  padding: 0.35rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  backdrop-filter: blur(4px);
+  transition: var(--transition);
+}
+
+.btn-remove-image:hover {
+  background: #dc2626;
+}
+
+/* Location Helper Button */
+.input-with-button {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.input-with-button input {
+  flex: 1;
+}
+
+/* Success Modal Details */
+.confirmation-code-banner {
+  background: var(--primary-light);
+  border: 2px dashed var(--primary);
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  text-align: center;
+  margin: 1.25rem 0;
+}
+
+.confirmation-code-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--primary);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.35rem;
+}
+
+.confirmation-code-value {
+  font-size: 1.85rem;
+  font-weight: 800;
+  font-family: 'Plus Jakarta Sans', monospace;
+  color: var(--primary-dark);
+  letter-spacing: 0.08em;
+  user-select: all;
+}
+
+.confirmation-steps {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.confirmation-steps li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.confirmation-steps svg {
+  color: #16a34a;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+@media (max-width: 768px) {
+  .form-grid-2 {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+}

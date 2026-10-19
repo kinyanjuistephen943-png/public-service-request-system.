@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Submit a municipal public service request for broken streetlights, water leakages, garbage collection, and road repairs.">
+  <title>Submit Service Request | Public Service Request System</title>
+
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/submit.css">
+</head>
+
+<body>
+ <!-- Site Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon-box" aria-hidden="true">
+          <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+          </svg>
+        </div>
+        <div class="brand-text">
+
+          <span>Public Service Request Portal</span>
+        </div>
+      </a>
+
+      <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle menu">&#9776;</button>
+
+      <nav class="main-nav" id="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="submit-request.html" class="nav-link">Submit Request</a></li>
+          <li><a href="track.html" class="nav-link">Track Status</a></li>
+          <li><a href="admin.html" class="nav-link">Admin Dashboard</a></li>
+        </ul>
+        <div class="nav-auth" id="header-auth-section"></div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content Form -->
+  <main class="main-content">
+    <div class="container submit-layout">
+
+      <div class="submit-intro">
+        <h2>Submit Public Service Request</h2>
+        <p>Report municipal infrastructure defects, sanitary hazards, or utility disruptions. An officer will be
+          dispatched accordingly.</p>
+      </div>
+
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">Incident & Service Details</h3>
+          <span class="badge badge-pending">Official Citizen Filing</span>
+        </div>
+
+        <div class="card-body">
+          <form id="service-request-form" novalidate>
+
+            <!-- Category and Priority in 2-cols -->
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label" for="request-category">Service Category <span
+                    class="required">*</span></label>
+                <select id="request-category" class="form-select" required>
+                  <option value="" disabled selected>-- Select Incident Category --</option>
+                  <option value="Broken Streetlight">Broken Streetlight / Electrical Pole</option>
+                  <option value="Water Issue">Water Issue / Leakage / Burst Pipe</option>
+                  <option value="Garbage Collection">Garbage Collection / Waste Dumpsite</option>
+                  <option value="Roads & Potholes">Roads & Potholes / Broken Sidewalk</option>
+                  <option value="Public Safety">Public Safety / Traffic Hazard / Uncovered Manhole</option>
+                  <option value="Parks & Environment">Parks & Environment / Fallen Tree Branches</option>
+                  <option value="Other Municipal Issue">Other Municipal Service</option>
+                </select>
+                <small class="form-hint">Choose the department best suited for your complaint.</small>
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="request-priority">Severity / Priority Level <span
+                    class="required">*</span></label>
+                <select id="request-priority" class="form-select">
+                  <option value="Low">Low (General inquiry or non-disruptive)</option>
+                  <option value="Medium" selected>Medium (Standard municipal maintenance)</option>
+                  <option value="High">High (Impacting pedestrian or vehicle movement)</option>
+                  <option value="Urgent">Urgent / Critical (Hazardous to human safety)</option>
+                </select>
+                <small class="form-hint">Emergency or safety hazards receive accelerated review.</small>
+              </div>
+            </div>
+
+            <!-- Location & Address with GPS button -->
+            <div class="form-group">
+              <label class="form-label" for="request-location">Incident Location / Physical Address <span
+                  class="required">*</span></label>
+              <div class="input-with-button">
+                <input type="text" id="request-location" class="form-control"
+                  placeholder="e.g., Corner of 4th Avenue & Market St, Near Post Office" required>
+                <button type="button" id="btn-get-location" class="btn btn-secondary" title="Auto-detect coordinates">
+                  <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                  Use GPS
+                </button>
+              </div>
+              <small class="form-hint">Please be as specific as possible (street name, house/pole number,
+                landmarks).</small>
+            </div>
+
+            <!-- Detailed Description -->
+            <div class="form-group">
+              <label class="form-label" for="request-description">Description of Issue <span
+                  class="required">*</span></label>
+              <textarea id="request-description" class="form-control"
+                placeholder="Describe the problem, when it started, and any immediate risks..." required></textarea>
+              <small class="form-hint">Detailed descriptions accelerate officer dispatch and assessment.</small>
+            </div>
+
+            <!-- Citizen Contact Details (Pre-filled if logged in) -->
+            <div class="form-grid-2">
+              <div class="form-group">
+                <label class="form-label" for="citizen-name">Reporter's Full Name</label>
+                <input type="text" id="citizen-name" class="form-control"
+                  placeholder="Jane Doe (or leave blank for anonymous)">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="citizen-contact">Contact Phone or Email</label>
+                <input type="text" id="citizen-contact" class="form-control"
+                  placeholder="phone number or email for SMS/updates">
+              </div>
+            </div>
+
+            <!-- Optional Image Upload -->
+            <div class="form-group">
+              <label class="form-label">Attach Photo Evidence (Optional)</label>
+
+              <div class="file-upload-box" id="file-drop-zone">
+                <input type="file" id="request-image" class="file-upload-input"
+                  accept="image/png, image/jpeg, image/webp">
+                <div id="upload-prompt-text">
+                  <div class="file-upload-icon">
+                    <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <p>Click to browse or drag & drop a photo here</p>
+                  <small>Supports PNG, JPG, or WEBP (Max 4MB)</small>
+                </div>
+
+                <div class="image-preview-container" id="image-preview-container">
+                  <img id="image-preview" src="" alt="Incident Photo Preview">
+                  <button type="button" class="btn-remove-image" id="btn-remove-image" title="Remove attached photo">
+                    &times; Remove Photo
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div style="margin-top: 2rem;">
+              <button type="submit" class="btn btn-primary btn-lg btn-block">
+                <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Confirm & Submit Service Request
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Submission Confirmation Modal -->
+  <div class="modal-backdrop" id="modal-submission-success" role="dialog" aria-modal="true"
+    aria-labelledby="confirmation-modal-title">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title" id="confirmation-modal-title">Request Successfully Logged!</h3>
+        <button class="modal-close-btn" onclick="window.closeModal('modal-submission-success')"
+          aria-label="Close dialog">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="color: var(--text-secondary); font-size: 0.95rem;">
+          Your service request has been queued in the municipal dispatch database with status: <strong>Pending
+            Review</strong>.
+        </p>
+
+        <div class="confirmation-code-banner">
+          <div class="confirmation-code-label">Your Tracking Reference Code</div>
+          <div class="confirmation-code-value" id="modal-tracking-id">REQ-2026-0000</div>
+          <button class="btn btn-outline btn-sm" id="btn-copy-tracking-id"
+            style="margin-top: 0.5rem; background: #ffffff;">
+            <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3" />
+            </svg>
+            Copy Tracking Code
+          </button>
+        </div>
+
+        <ul class="confirmation-steps">
+          <li>
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd" />
+            </svg>
+            <span>Retain this code to inspect status progression from <strong>Pending &rarr; In Progress &rarr;
+                Resolved</strong>.</span>
+          </li>
+          <li>
+            <svg width="18" height="18" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd"
+                d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+                clip-rule="evenodd" />
+            </svg>
+            <span>A field inspector will assess the location within 24-48 business hours.</span>
+          </li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" id="btn-print-receipt">Print Summary</button>
+        <button type="button" class="btn btn-primary" id="btn-goto-tracking">Track Status Now &rarr;</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="footer-brand-title">
+          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+          </svg>
+
+        </div>
+        <p class="footer-brand-desc">Official citizen incident reporting and municipal service tracking portal.</p>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Public Service Request System. All rights reserved.</p>
+
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/storage.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/submit.js"></script>
+</body>
+
+</html>

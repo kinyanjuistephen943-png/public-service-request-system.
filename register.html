@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Register as a Citizen or Municipal Officer on the Public Service Request System.">
+  <title>Public Service Request System</title>
+
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon-box" aria-hidden="true">
+          <svg width="24" height="24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span>Public Service Request Portal</span>
+        </div>
+      </a>
+
+      <button class="mobile-menu-btn" id="mobile-menu-toggle" aria-label="Toggle menu">&#9776;</button>
+
+      <nav class="main-nav" id="main-nav">
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="submit-request.html" class="nav-link">Submit Request</a></li>
+          <li><a href="track.html" class="nav-link">Track Status</a></li>
+          <li><a href="admin.html" class="nav-link">Admin Dashboard</a></li>
+        </ul>
+        <div class="nav-auth" id="header-auth-section"></div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Registration Container -->
+  <main class="main-content">
+    <div class="container">
+      <div class="auth-wrapper">
+        <div class="auth-card">
+          <div class="auth-header">
+            <div class="auth-icon-badge" aria-hidden="true">
+              <svg width="28" height="28" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
+              </svg>
+            </div>
+            <h2 class="auth-title">Create an Account</h2>
+            <p class="auth-subtitle">Register to submit requests, track resolutions, and get updates.</p>
+          </div>
+
+          <form id="register-form" novalidate>
+            <!-- Account Role Selection -->
+            <label class="form-label">Select Account Type <span class="required">*</span></label>
+            <div class="auth-role-selector">
+              <label class="role-radio-label active" id="label-role-citizen">
+                <input type="radio" name="userRole" value="citizen" checked>
+                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+                Citizen
+              </label>
+              <label class="role-radio-label" id="label-role-admin">
+                <input type="radio" name="userRole" value="admin">
+                <svg width="18" height="18" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+                Admin Officer
+              </label>
+            </div>
+
+            <!-- Full Name -->
+            <div class="form-group">
+              <label class="form-label" for="reg-fullname">Full Name <span class="required">*</span></label>
+              <input type="text" id="reg-fullname" class="form-control" placeholder="e.g. kamau mwangi" required
+                autocomplete="name">
+            </div>
+
+            <!-- National  -->
+            <div class="form-group">
+              <label class="form-label" for="reg-nationalid">National ID</label>
+              <input type="text" id="reg-nationalid" class="form-control" placeholder="e.g. 41***30"
+                autocomplete="off">
+              <small class="form-hint">Used for official verification and identity matching.</small>
+            </div>
+
+            <!-- Email & Phone in 2-cols -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div class="form-group">
+                <label class="form-label" for="reg-email">Email Address <span class="required">*</span></label>
+                <input type="email" id="reg-email" class="form-control" placeholder="citizen@email.com" required
+                  autocomplete="email">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="reg-phone">Phone Number</label>
+                <input type="tel" id="reg-phone" class="form-control" placeholder="+254 700 000 000" autocomplete="tel">
+              </div>
+            </div>
+
+            <!-- Password & Confirm -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div class="form-group">
+                <label class="form-label" for="reg-password">Password <span class="required">*</span></label>
+                <input type="password" id="reg-password" class="form-control" placeholder="Min 6 characters" required
+                  autocomplete="new-password">
+              </div>
+
+              <div class="form-group">
+                <label class="form-label" for="reg-confirm-password">Confirm Password <span
+                    class="required">*</span></label>
+                <input type="password" id="reg-confirm-password" class="form-control" placeholder="Repeat password"
+                  required autocomplete="new-password">
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block btn-lg" style="margin-top: 0.5rem;">
+              Create My Account
+            </button>
+          </form>
+
+          <div class="auth-footer-prompt">
+            Already have an account? <a href="login.html">Sign In here &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <div class="footer-brand-title">
+          <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+          </svg>
+                 </div>
+        <p class="footer-brand-desc">Official citizen incident reporting and municipal service tracking portal.</p>
+      </div>
+    </div>
+
+    <div class="container footer-bottom">
+      <p>&copy; 2026 Public Service Request System. All rights reserved.</p>
+
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/storage.js"></script>
+  <script src="js/common.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+
+</html>
